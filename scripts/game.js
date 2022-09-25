@@ -15,9 +15,9 @@ function switchPlayer() {
   if (activePlayer === 0) {
     activePlayer = 1;
   } else {
-    activePlayer === 0;
+    activePlayer = 0;
   }
-  activePlayerName.textContent = player[activePlayer].name;
+  activePlayerName.textContent = players[activePlayer].name;
 }
 function selectGameField(event) {
   if (event.target.tagName !== "LI") return;
@@ -83,9 +83,10 @@ function checkForGameOver() {
 function endGame(winnerId) {
   gameOverElement.style.display = "block";
   if (winnerId > 0) {
-    const winnerName = player[winnerId - 1].name;
-    gameOverElement.firstElementChild.firstElementChild.textContent =
-      winnerName;
+    const winnerName = players[winnerId - 1].name;
+    // console.log(winnerName);
+    document.getElementById("winner-name").textContent = winnerName;
+    // gameOverElement.firstElementChild.textContent = winnerName;
   } else {
     gameOverElement.firstElementChild.textContent = "Its's a draw!";
   }
